@@ -27,7 +27,7 @@ Multi-database session manager for Rust — unified connection, schema browsing,
 ## Usage
 
 ```rust
-use rust_anysql::{SessionManager, DbConnectionConfig, DbDriver};
+use tokimo_package_anysql::{SessionManager, DbConnectionConfig, DbDriver};
 use std::time::Duration;
 
 let manager = SessionManager::new(Duration::from_hours(1));
@@ -51,13 +51,10 @@ let session_id = manager.open(config).await?;
 let rows = manager.execute(&session_id, "SELECT * FROM users LIMIT 10", &[]).await?;
 ```
 
-## Crate name
-
-The crate lib name is `rust_anysql` for backward compatibility (`use rust_anysql::...`).
-In Cargo.toml, reference it with the `package` key:
+## Cargo
 
 ```toml
-rust-anysql = { git = "https://github.com/tokimo-lab/tokimo-package-anysql", package = "tokimo-package-anysql" }
+tokimo-package-anysql = { git = "https://github.com/tokimo-lab/tokimo-package-anysql" }
 ```
 
 ## License

@@ -4,9 +4,6 @@ version = "0.1.0"
 edition = "2024"
 description = "多数据库管理引擎 — session 管理 + schema 浏览 + SQL 执行"
 
-[lib]
-name = "rust_anysql"
-path = "src/lib.rs"
 
 
 [dependencies]
