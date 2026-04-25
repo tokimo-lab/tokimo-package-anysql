@@ -1,0 +1,42 @@
+[package]
+name = "tokimo-package-anysql"
+version = "0.1.0"
+edition = "2024"
+description = "多数据库管理引擎 — session 管理 + schema 浏览 + SQL 执行"
+
+[lib]
+name = "rust_anysql"
+path = "src/lib.rs"
+
+
+[dependencies]
+sqlx = { version = "0.8", features = [
+    "runtime-tokio",
+    "tls-rustls",
+    "postgres",
+    "mysql",
+    "sqlite",
+    "chrono",
+    "uuid",
+    "json",
+] }
+tiberius = { version = "0.12", default-features = false, features = ["tds73", "chrono", "rustls"] }
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls", "query"] }
+mongodb = { version = "~3.2", default-features = false, features = ["rustls-tls", "compat-3-0-0"] }
+oracle = { version = "0.6", optional = true }
+tokio = { version = "1", features = ["sync", "rt", "time", "macros", "net"] }
+tokio-util = { version = "0.7", features = ["compat"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+indexmap = "2"
+ts-rs = { version = "12", features = ["serde-json-impl"] }
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+thiserror = "2"
+async-trait = "0.1"
+uuid = { version = "1", features = ["v4", "serde"] }
+futures-util = "0.3"
+
+[features]
+default = []
+oracle = ["dep:oracle"]
