@@ -3,8 +3,8 @@
 //!
 //! 运行: cargo test --test integration -- --nocapture
 
-use tokimo_package_anysql::{DbConnectionConfig, DbDriver, SessionManager};
 use std::time::Duration;
+use tokimo_package_anysql::{DbConnectionConfig, DbDriver, SessionManager};
 
 fn pg_config() -> DbConnectionConfig {
     DbConnectionConfig {
